@@ -28,3 +28,10 @@ FROM xboxgames
 INNER JOIN ps4games ON
 ps4games.game=xboxgames.game
 GROUP BY xboxgames.year
+
+-- Determine total overall sale of units per Platform for games appearing on both platforms
+SELECT SUM(xboxgames.xbox_global) AS "Xbox Game Unit Sales in Millions", SUM(ps4games.ps4_global) AS "PS4 Game Unit Sales in Millions"
+FROM xboxgames
+INNER JOIN ps4games ON
+ps4games.game=xboxgames.game
+
